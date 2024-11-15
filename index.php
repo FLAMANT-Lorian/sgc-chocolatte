@@ -1,8 +1,13 @@
 <<?php
 date_default_timezone_set('Europe/Brussels'); // Voir avoir la time zone Belge cra de base c'est le UTC 0, par rapport a Greenwich.
 $today = date('d/m/Y H:i:s'); // Voir les formats dans la documentation de PHP (datetime) sur internet.
-$title = 'Chocolatté ('.$today.')'; // Ne pas oublier les points des 2 côtés de la variables.
+$title = 'Chocolatté ('.$today.')'; // Ne pas oublier les points des 2 côtés de la variables. Concaténation de chaine de caractères et de variables PHP
 
+// single-line comment
+/*
+commentaire
+multilignes
+*/
 
 
 
@@ -16,7 +21,7 @@ $title = 'Chocolatté ('.$today.')'; // Ne pas oublier les points des 2 côtés 
     <meta name="author" content="">
 
     <title><?php echo $title; ?></title>
-    <!--<title><?= $title ?></title>  // Equivalent quand on a que 1 ligne de code PHP-->
+    <!--<title><?= $title ?></title>  // Equivalent quand on a que 1 ligne de code PHP, une chose à afficher-->
 
 
     <!-- CSS FILES -->
