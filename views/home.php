@@ -194,7 +194,7 @@ multilignes
 
                             <div class="team-block-image-wrap">
                                 <img src="<?= $employee->img;?>"
-                                     class="team-block-image img-fluid" alt="">
+                                     class="team-block-image img-fluid" alt="Image de <?= $employee->name;?>">
                             </div>
                         </div>
                     </div>
