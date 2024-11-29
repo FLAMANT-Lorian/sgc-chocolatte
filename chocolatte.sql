@@ -39,21 +39,17 @@ CREATE TABLE `employees`
   DEFAULT CHARSET = utf8mb4
   COLLATE = utf8mb4_general_ci;
 
-INSERT INTO employees(name,
-                      job,
-                      description,
-                      created_at,
-                      updated_at)
-VALUES ('lorian',
-        'étudiant',
-        'J’étudie le web',
-        '2024-11-28',
-        '2024-11-28'),
-       ('Mathis',
-        'Serveur',
-        'Je fais de bon cocktails',
-        '2024-11-28',
-        '2024-11-28');
+INSERT INTO `employees` (`name`, `job`, `description`, `img`, `created_at`, `updated_at`)
+VALUES
+	('Toon','Boss','Il veille au bon fonctionnement du café.','http://chocolatte.test/images/team/portrait-elegant-old-man-wearing-suit.jpg','2024-11-23 11:15:57','2024-11-23 11:15:57'),
+	('Adrien','Manager','Il gère à l\'organisation du café.','http://chocolatte.test/images/team/cute-korean-barista-girl-pouring-coffee-prepare-filter-batch-brew-pour-working-cafe.jpg','2024-11-23 11:18:53','2024-11-23 11:18:53'),
+	('Edyta','Serveur','Accueillir les clients, prendre les commandes et assurer un service rapide et courtois.','http://chocolatte.test/images/team/small-business-owner-drinking-coffee.jpg','2024-11-23 11:20:05','2024-11-23 11:20:05'),
+	('Seren','Barista','Préparer et servir des cafés, thés et boissons spécialisées avec une présentation soignée.','http://chocolatte.test/images/team/smiley-business-woman-working-cashier.jpg','2024-11-23 11:20:49','2024-11-23 11:20:49');
+
+SELECT `name`, `job`, `description`, `img`
+FROM `employees`
+ORDER BY `name` ASC
+LIMIT 4;
 
 
 
@@ -124,21 +120,12 @@ CREATE TABLE `messages`
   DEFAULT CHARSET = utf8mb4
   COLLATE = utf8mb4_general_ci;
 
-INSERT INTO messages(name,
-                     email,
-                     content,
-                     created_at,
-                     updated_at)
-VALUES ('Lorian',
-        'lorianflamant@gmail.com',
-        'Très bon café et très bon acceuil !',
-        '2024-11-28',
-        '2024-11-28'),
-       ('Jean',
-        'jeandupont@gmail.com',
-        'Très bonne ambiance dans ce café !',
-        '2024-11-28',
-        '2024-11-28');
+INSERT INTO `messages` (`name`, `email`, `content`, `created_at`, `updated_at`)
+VALUES
+	('Jean','Jeanroyen@gmail.com','Bonjour, c\'était pour savoir quand était ouvert le café.','2024-11-23 11:25:24','2024-11-23 11:25:24'),
+	('Pierre','Pierreduriz@gmail.com','Bonsoir, j\'aimerais organisé une reunion dans votre café, serait-il possible de m\'envoyer vos tarifs ?','2024-11-23 11:26:33','2024-11-23 11:26:33'),
+	('Laura','Lauratoire@gmail.com','J\'ai oublié mon sac, l\'auriez-vous retrouver','2024-11-23 11:27:41','2024-11-23 11:27:41');
+
 
 # Dump de la table pages
 # ------------------------------------------------------------
@@ -182,6 +169,18 @@ CREATE TABLE `product_categories`
   DEFAULT CHARSET = utf8mb4
   COLLATE = utf8mb4_general_ci;
 
+INSERT INTO `product_categories` (`id`, `parent_id`, `order`, `pre`, `title`, `created_at`, `updated_at`)
+VALUES
+	(1,NULL,1,'Menu delicieux','Déjeuner','2024-11-23 11:31:03','2024-11-23 11:31:03'),
+	(2,NULL,2,'Menu favori','Boissons','2024-11-23 11:32:23','2024-11-23 11:32:23'),
+	(3,1,0,'Commençons par quelques','Toasts','2024-11-29 09:11:54','2024-11-29 09:11:54'),
+	(4,1,1,'Et pourquoi pas des','Oeufs','2024-11-29 09:12:14','2024-11-29 09:12:14'),
+	(5,1,2,'Gourmandise !','Desserts','2024-11-29 09:12:36','2024-11-29 09:12:36'),
+	(6,2,0,'Bien commencer la journée','Café','2024-11-29 09:13:25','2024-11-29 09:13:25'),
+	(7,2,1,'Les incontournables','Thés & Tisanes','2024-11-29 09:14:07','2024-11-29 09:14:07'),
+	(8,2,2,'Du chocolat!','Chocolats chauds','2024-11-29 09:14:29','2024-11-29 09:14:29');
+
+
 
 
 # Dump de la table products
@@ -208,6 +207,19 @@ CREATE TABLE `products`
   DEFAULT CHARSET = utf8mb4
   COLLATE = utf8mb4_general_ci;
 
+INSERT INTO `products` (`id`, `product_category_id`, `name`, `description`, `tag`, `price`, `discount`, `created_at`, `updated_at`, `deleted_at`)
+VALUES
+	(1,5,'Pancake nature','Un pancake est une crêpe épaisse et moelleuse.',NULL,1250,NULL,'2024-11-23 11:35:28','2024-11-23 11:35:28',NULL),
+	(2,5,'Gaufre grillée','C\'est une gaufre croustillante à l\'extérieur, moelleuse à l\'intérieur,',NULL,1200,1650,'2024-11-23 11:37:26','2024-11-23 11:37:26',NULL),
+	(3,5,'Gateau au chocolat','Dessert moelleux et riche.','Recommander',1800,NULL,'2024-11-23 11:39:10','2024-11-23 11:39:10',NULL),
+	(4,5,'Mousse au chocolat','Dessert léger et aérien',NULL,1400,1700,'2024-11-23 11:40:25','2024-11-23 11:40:25',NULL),
+	(5,5,'Cake nature','Dessert moelleux',NULL,1400,NULL,'2024-11-23 11:41:09','2024-11-23 11:41:09',NULL),
+	(6,6,'Latte','Café fraîchement préparé avec du lait vapeur.','Recommander',1250,NULL,'2024-11-23 11:42:30','2024-11-23 11:42:30',NULL),
+	(7,6,'Café blanc','Café infusé et lait vapeur.',NULL,590,NULL,'2024-11-23 11:44:08','2024-11-23 11:44:08',NULL),
+	(8,8,'Chocolat chaud classique','Boisson crémeuse et réconfortante.',NULL,550,NULL,'2024-11-23 11:45:23','2024-11-23 11:45:23',NULL),
+	(9,7,'Thé vert','Infusion légère et délicate.',NULL,750,NULL,'2024-11-23 11:46:18','2024-11-23 11:46:18',NULL),
+	(10,8,'Cappuccino','Mélange d\'espresso, de lait chaud et de mousse de lait.',NULL,650,NULL,'2024-11-23 11:47:51','2024-11-23 11:47:51',NULL);
+
 
 
 # Dump de la table reviews
@@ -232,26 +244,12 @@ CREATE TABLE `reviews`
   DEFAULT CHARSET = utf8mb4
   COLLATE = utf8mb4_general_ci;
 
-INSERT INTO reviews(customer,
-                    content,
-                    rating,
-                    verified,
-                    created_at,
-                    updated_at)
-VALUES ('Mark',
-        'Une équipe vraiment au top !',
-        5,
-        1,
-        '2024-11-28',
-        '2024-11-28'
-       ),
-       ('Carlito',
-        'Ambiance de travail chaleuresue et sans pression !',
-        4,
-        1,
-        '2024-11-28',
-        '2024-11-28'
-       );
+INSERT INTO `reviews` (`customer`, `cover_img`, `avatar_img`, `content`, `rating`,verified, `created_at`, `updated_at`)
+VALUES
+	('Sandra','https://img.freepik.com/photos-premium/tasse-cafe-table-fond-marron_192217-787.jpg','http://chocolatte.test/images/reviews/young-woman-with-round-glasses-yellow-sweater.jpg','\"Excellente boisson gourmande !\"\nSi vous aimez le chocolat et le café, vous allez adorer cette boisson. Le goût est riche, la texture est parfaite, et ça vous donne un bon boost.',40,1,'2024-11-23 11:50:29','2024-11-23 11:50:29'),
+	('Don','https://img.freepik.com/photos-premium/tasse-cafe-table-fond-marron_192217-787.jpg','http://chocolatte.test/images/reviews/senior-man-white-sweater-eyeglasses.jpg','\"Parfait pour les après-midis\"\nIdéal pour une pause-café, ce chococafé combine bien l\'amertume du café avec la douceur du chocolat, une véritable invitation à la relaxation.',45,'2024-11-23 11:50:29','2024-11-23 11:50:29','2024-11-23 11:50:29'),
+	('Olivia','https://img.freepik.com/photos-premium/tasse-cafe-table-fond-marron_192217-787.jpg','http://chocolatte.test/images/reviews/young-beautiful-woman-pink-warm-sweater-natural-look-smiling-portrait-isolated-long-hair.jpg','\"Trop léger pour un chococafé\"\nJe m\'attendais à quelque chose de plus corsé, mais le goût est un peu trop doux à mon goût. Ce n\'est pas assez caféiné pour moi.',30,1,'2024-11-23 11:50:29','2024-11-23 11:50:29');
+
 
 
 # Dump de la table sections
