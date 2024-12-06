@@ -8,6 +8,7 @@ class HomeController extends BaseController // Tout ce qui est entre les accolad
             'title' => 'Chocolatté',
             'preTitle' => 'Bienvenue chez',
             'employees' => Employee::getHomepageEmployees(),
+            'reviews' => Review::getHomepageReviews(),
         ]);
     }
 }

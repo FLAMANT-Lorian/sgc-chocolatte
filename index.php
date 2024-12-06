@@ -7,6 +7,7 @@ require_once('controllers/BaseController.php'); // Vu que dans HomeController on
 require_once('controllers/HomeController.php');
 require_once('models/BaseModel.php');
 require_once('models/Employee.php');
+require_once('models/Review.php');
 
 $controller = new HomeController(); //new permet de créer qlq chose, içi on créer un nouveau controller
 
