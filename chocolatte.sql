@@ -100,7 +100,6 @@ CREATE TABLE `menus`
   COLLATE = utf8mb4_general_ci;
 
 
-
 # Dump de la table messages
 # ------------------------------------------------------------
 
@@ -146,6 +145,9 @@ CREATE TABLE `pages`
   DEFAULT CHARSET = utf8mb4
   COLLATE = utf8mb4_general_ci;
 
+INSERT INTO `pages` (`template`, `slug`, `created_at`, `updated_at`)
+VALUE ('Acceuil', 'acceuil', '2024-11-23', '2024-11-23'),
+    ('Réservation', 'reservation', '2024-11-23', '2024-11-23');
 
 
 # Dump de la table product_categories
@@ -210,9 +212,9 @@ CREATE TABLE `products`
 INSERT INTO `products` (`id`, `product_category_id`, `name`, `description`, `tag`, `price`, `discount`, `created_at`, `updated_at`, `deleted_at`)
 VALUES
 	(1,5,'Pancake nature','Un pancake est une crêpe épaisse et moelleuse.',NULL,1250,NULL,'2024-11-23 11:35:28','2024-11-23 11:35:28',NULL),
-	(2,5,'Gaufre grillée','C\'est une gaufre croustillante à l\'extérieur, moelleuse à l\'intérieur,',NULL,1200,1650,'2024-11-23 11:37:26','2024-11-23 11:37:26',NULL),
+	(2,5,'Gaufre grillée','C\'est une gaufre croustillante à l\'extérieur, moelleuse à l\'intérieur,',NULL,1650,1200,'2024-11-23 11:37:26','2024-11-23 11:37:26',NULL),
 	(3,5,'Gateau au chocolat','Dessert moelleux et riche.','Recommander',1800,NULL,'2024-11-23 11:39:10','2024-11-23 11:39:10',NULL),
-	(4,5,'Mousse au chocolat','Dessert léger et aérien',NULL,1400,1700,'2024-11-23 11:40:25','2024-11-23 11:40:25',NULL),
+	(4,5,'Mousse au chocolat','Dessert léger et aérien',NULL,1700,1500,'2024-11-23 11:40:25','2024-11-23 11:40:25',NULL),
 	(5,5,'Cake nature','Dessert moelleux',NULL,1400,NULL,'2024-11-23 11:41:09','2024-11-23 11:41:09',NULL),
 	(6,6,'Latte','Café fraîchement préparé avec du lait vapeur.','Recommander',1250,NULL,'2024-11-23 11:42:30','2024-11-23 11:42:30',NULL),
 	(7,6,'Café blanc','Café infusé et lait vapeur.',NULL,590,NULL,'2024-11-23 11:44:08','2024-11-23 11:44:08',NULL),
@@ -274,6 +276,7 @@ CREATE TABLE `sections`
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8mb4
   COLLATE = utf8mb4_general_ci;
+
 
 
 
